@@ -20,7 +20,7 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # Turn/Stun server override. This allows AppRTC to connect to turn servers
 # directly rather than retrieving them from an ICE server provider.
-ICE_SERVER_OVERRIDE = None
+# ICE_SERVER_OVERRIDE = None
 # Enable by uncomment below and comment out above, then specify turn and stun
 # ICE_SERVER_OVERRIDE  = [
 #   {
@@ -37,8 +37,24 @@ ICE_SERVER_OVERRIDE = None
 #     ]
 #   }
 # ]
+ICE_SERVER_OVERRIDE  = [
+  {
+    "urls": [
+      "turn:45.77.221.127:3478?transport=udp",
+      "turn:45.77.221.127:3478?transport=tcp"
+    ],
+    "username": "apprtc1",
+    "credential": "apprtc1"
+  },
+  {
+    "urls": [
+      "stun:45.77.221.127:3478"
+    ]
+  }
+]
 
-ICE_SERVER_BASE_URL = 'https://networktraversal.googleapis.com'
+# ICE_SERVER_BASE_URL = 'https://networktraversal.googleapis.com'
+ICE_SERVER_BASE_URL = 'http://45.77.221.127'
 ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 
@@ -47,11 +63,13 @@ WSS_INSTANCE_HOST_KEY = 'host_port_pair'
 WSS_INSTANCE_NAME_KEY = 'vm_name'
 WSS_INSTANCE_ZONE_KEY = 'zone'
 WSS_INSTANCES = [{
-    WSS_INSTANCE_HOST_KEY: 'apprtc-ws.webrtc.org:443',
+#    WSS_INSTANCE_HOST_KEY: 'apprtc-ws.webrtc.org:443',
+    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-a'
 }, {
-    WSS_INSTANCE_HOST_KEY: 'apprtc-ws-2.webrtc.org:443',
+#    WSS_INSTANCE_HOST_KEY: 'apprtc-ws-2.webrtc.org:443',
+    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std-2',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-f'
 }]
