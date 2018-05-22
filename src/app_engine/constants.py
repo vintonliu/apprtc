@@ -40,21 +40,26 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 ICE_SERVER_OVERRIDE  = [
   {
     "urls": [
-      "turn:45.77.221.127:3478?transport=udp",
-      "turn:45.77.221.127:3478?transport=tcp"
+     # "turn:45.77.221.127:3478?transport=udp",
+     # "turn:45.77.221.127:3478?transport=udp",
+      "turn:www.apprtc.club:3478?transport=tcp"
+      "turn:www.apprtc.club:3478?transport=tcp"
     ],
     "username": "apprtc1",
-    "credential": "apprtc1"
+#    "credential": "apprtc1"
+    "credential": "0x12ccb6e081cfbddc47c7cd482821b893"
   },
   {
     "urls": [
-      "stun:45.77.221.127:3478"
+      # "stun:45.77.221.127:3478"
+      "stun:www.apprtc.club:3478"
     ]
   }
 ]
 
 # ICE_SERVER_BASE_URL = 'https://networktraversal.googleapis.com'
-ICE_SERVER_BASE_URL = 'http://45.77.221.127'
+# ICE_SERVER_BASE_URL = 'http://45.77.221.127'
+ICE_SERVER_BASE_URL = 'https://www.apprtc.club'
 ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 
@@ -64,12 +69,14 @@ WSS_INSTANCE_NAME_KEY = 'vm_name'
 WSS_INSTANCE_ZONE_KEY = 'zone'
 WSS_INSTANCES = [{
 #    WSS_INSTANCE_HOST_KEY: 'apprtc-ws.webrtc.org:443',
-    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
+#    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
+    WSS_INSTANCE_HOST_KEY: 'www.apprtc.club:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-a'
 }, {
 #    WSS_INSTANCE_HOST_KEY: 'apprtc-ws-2.webrtc.org:443',
-    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
+#    WSS_INSTANCE_HOST_KEY: '45.77.221.127:8089',
+    WSS_INSTANCE_HOST_KEY: 'www.apprtc.club:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std-2',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-f'
 }]
